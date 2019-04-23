@@ -1,3 +1,4 @@
 #!/bin/bash
 
-$PYTHON setup.py install
+conda config --add channels omnia
+python2 setup.py install
