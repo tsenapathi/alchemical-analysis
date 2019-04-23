@@ -317,7 +317,7 @@ def estimatewithMBAR(u_kln, N_k, reltol, regular_estimate=False):
 
       pl.xlim(-1, K)
       pl.ylim(0, K+1)
-      pl.savefig(os.path.join(P.output_directory, 'O_MBAR.pdf'), bbox_inches='tight', pad_inches=0.0)
+      pl.savefig(os.path.join(P.output_directory, 'O_MBAR.png'), bbox_inches='tight', pad_inches=0.0)
       pl.close(fig)
       return
 
@@ -338,7 +338,7 @@ def estimatewithMBAR(u_kln, N_k, reltol, regular_estimate=False):
                line += ' %5.2f ' % O[k, l]
             print line
          plotOverlapMatrix(O)
-         print "\nFor a nicer figure look at 'O_MBAR.pdf'"
+         print "\nFor a nicer figure look at 'O_MBAR.png'"
       return (Deltaf_ij, dDeltaf_ij)
    return (Deltaf_ij[0,K-1]/P.beta_report, dDeltaf_ij[0,K-1]/P.beta_report)
 
@@ -774,7 +774,7 @@ def dF_t():
       pl.xticks(f_ts, ['%.2f' % i for i in f_ts])
       pl.tick_params(axis='x', color='#D2B9D3')
       pl.tick_params(axis='y', color='#D2B9D3')
-      pl.savefig(os.path.join(P.output_directory, 'dF_t.pdf'))
+      pl.savefig(os.path.join(P.output_directory, 'dF_t.png'))
       pl.close(fig)
       return
 
@@ -844,7 +844,7 @@ def dF_t():
    print "%10s -- %s\n%10s -- %-10s %16s %15.3f +- %5.3f\n%s" % (ts[-1], ts[-1], '('+ts[0], ts[-1]+')', 'XXXXXX', F_df[-1], F_ddf[-1], 70*'-')
 
    # Plot the forward and reverse dF(t); store the data points in the text file.
-   print "Plotting data to the file dF_t.pdf...\n\n"
+   print "Plotting data to the file dF_t.png...\n\n"
    plotdFvsTime([float(i) for i in ts[1:]], [float(i) for i in ts[:-1]], F_df, R_df, F_ddf, R_ddf)
    outtext = ["%12s %10s %-10s %17s %10s %s\n" % ('Time (ps)', 'Forward', P.units, 'Time (ps)', 'Reverse', P.units)]
    outtext+= ["%10s %11.3f +- %5.3f %18s %11.3f +- %5.3f\n" % (ts[1:][i], F_df[i], F_ddf[i], ts[:-1][i], R_df[i], R_ddf[i]) for i in range(len(F_df))]
@@ -888,7 +888,7 @@ def plotdFvsLambda():
       leg = pl.legend(lines, tuple(P.methods), loc=3, ncol=2, prop=FP(size=10), fancybox=True)
       leg.get_frame().set_alpha(0.5)
       pl.title('The free energy change breakdown', fontsize = 12)
-      pl.savefig(os.path.join(P.output_directory, 'dF_state_long.pdf'), bbox_inches='tight')
+      pl.savefig(os.path.join(P.output_directory, 'dF_state_long.png'), bbox_inches='tight')
       pl.close(fig)
       return
 
@@ -926,7 +926,7 @@ def plotdFvsLambda():
          ndx += 1
       leg = ax.legend(lines, tuple(P.methods), loc=0, ncol=2, prop=FP(size=8), title='$\mathrm{\Delta G\/%s\/}\mathit{vs.}\/\mathrm{lambda\/pair}$' % P.units, fancybox=True)
       leg.get_frame().set_alpha(0.5)
-      pl.savefig(os.path.join(P.output_directory, 'dF_state.pdf'), bbox_inches='tight')
+      pl.savefig(os.path.join(P.output_directory, 'dF_state.png'), bbox_inches='tight')
       pl.close(fig)
       return
 
@@ -1056,7 +1056,7 @@ def plotdFvsLambda():
          lege = ax.legend(prop=FP(size=14), frameon=False, loc=1)
          for l in lege.legendHandles:
             l.set_linewidth(10)
-      pl.savefig(os.path.join(P.output_directory, 'dhdl_TI.pdf'))
+      pl.savefig(os.path.join(P.output_directory, 'dhdl_TI.png'))
       pl.close(fig)
       return
 
@@ -1107,7 +1107,7 @@ def plotCFM(u_kln, N_k, num_bins=100):
          pl.xlim(xx_i.min(), xx_i.max())
       pl.annotate(r'$\mathrm{\Delta U_{i,i+1}\/(reduced\/units)}$', xy=(0.5, 0.03), xytext=(0.5, 0), xycoords=('figure fraction', 'figure fraction'), size=20+sf, textcoords='offset points', va='center', ha='center', color='#151B54')
       pl.annotate(r'$\mathrm{\Delta g_{i+1,i}\/(reduced\/units)}$', xy=(0.06, 0.5), xytext=(0, 0.5), rotation=90, xycoords=('figure fraction', 'figure fraction'), size=20+sf, textcoords='offset points', va='center', ha='center', color='#151B54')
-      pl.savefig(os.path.join(P.output_directory, 'cfm.pdf'))
+      pl.savefig(os.path.join(P.output_directory, 'cfm.png'))
       pl.close(fig)
       return
 
