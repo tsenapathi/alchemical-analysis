@@ -1,0 +1,24 @@
+package:
+  name: alchemical-analysis
+  version: 1.0.2dev0
+
+source:
+  git_url: git@github.com:tsenapathi/alchemical-analysis.git
+  git_rev: 488d7b8a7319f6408c22076cecb201a4dcbebff5
+
+build:
+  entry_points: 
+    - alchemical_analysis = alchemical_analysis.alchemical_analysis:main
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy
+    - pymbar
+    - matplotlib
+  
+about:
+  home: https://github.com/MobleyLab/alchemical-analysis.git
+  license: MIT
+  summary: An open tool implementing some recommended practices for analyzing alchemical free energy calculations.
